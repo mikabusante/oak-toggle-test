@@ -1,23 +1,16 @@
 import React, { useState } from "react";
-import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
-import { lightTheme, darkTheme } from "./themes";
-import TestComponent from "./TestComponent";
-import Toggle from "./Toggle";
+import styled, { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme, GlobalStyles } from "./utils";
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    background: ${(props) => props.theme.body};
-    transition: background 0.25s linear;
-  }
-`;
+import Toggle from "./Toggle";
+import TestComponent from "./TestComponent";
 
 function App() {
   const [theme, setTheme] = useState("light");
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-      <GlobalStyle />
+      <GlobalStyles />
       <Wrapper>
         <Toggle setTheme={setTheme} />
         <TestComponent />

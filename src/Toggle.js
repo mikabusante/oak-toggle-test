@@ -45,7 +45,7 @@ const Switch = styled.span`
     height: 25px;
     width: 43px;
     border-radius: 0.95em;
-    opacity: 0.6;
+    /* opacity: 0.6; */
     background: #40484d;
   }
 
