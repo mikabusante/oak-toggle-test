@@ -3,20 +3,24 @@ import styled from "styled-components/macro";
 import { RiSunLine, RiMoonClearLine } from "react-icons/ri";
 
 const Toggle = ({ isDark, setIsDark }) => {
-  const handleToggle = (e) => {
-    let isToggled = e.target.checked;
-    setIsDark(isToggled ? true : false);
+  // const handleToggle = (e) => {
+  //   let isToggled = e.target.checked;
+  //   setIsDark(isToggled ? true : false);
+  // };
+
+  const handleToggle = () => {
+    setIsDark(!isDark);
   };
 
   return (
     <Wrapper>
       <RiSunLine />
-      <Checkbox
+      {/* <Checkbox
         checked={isDark}
         type="checkbox"
         onChange={(e) => handleToggle(e)}
-      />
-      <Switch />
+      /> */}
+      <Switch isDark={isDark} onClick={handleToggle} />
       <RiMoonClearLine />
     </Wrapper>
   );
@@ -47,13 +51,13 @@ const Switch = styled.span`
     width: 43px;
     border-radius: 0.95em;
     /* opacity: 0.6; */
-    background: #40484d;
+    background: ${(props) => (props.isDark ? "#38dedf" : "#40484d")};
   }
 
   :after {
     position: absolute;
     top: 10%;
-    left: 3px;
+    left: ${(props) => (props.isDark ? "20px" : "3px")};
     height: 20px;
     width: 20px;
     border-radius: 50%;
@@ -61,27 +65,27 @@ const Switch = styled.span`
   }
 `;
 
-const Checkbox = styled.input`
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
+// const Checkbox = styled.input`
+//   position: absolute;
+//   opacity: 0;
+//   pointer-events: none;
 
-  :checked {
-    + ${Switch} {
-      :before {
-        background: #38dedf;
-      }
+//   :checked {
+//     + ${Switch} {
+//       :before {
+//         background: #38dedf;
+//       }
 
-      :after {
-        left: 20px;
-      }
-    }
-  }
+//       :after {
+//         left: 20px;
+//       }
+//     }
+//   }
 
-  :focus {
-    + ${Switch} {
-      outline: #5d9dd5 solid 1px;
-      box-shadow: 0 0 8px #5e9ed6;
-    }
-  }
-`;
+//   :focus {
+//     + ${Switch} {
+//       outline: #5d9dd5 solid 1px;
+//       box-shadow: 0 0 8px #5e9ed6;
+//     }
+//   }
+// `;
