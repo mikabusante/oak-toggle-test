@@ -13,4 +13,4 @@ yarn start
 
 Then open at [localhost:3000](localhost:3000).
 
-Deployed at (https://sleepy-hypatia-0dcc38.netlify.app/)[https://sleepy-hypatia-0dcc38.netlify.app/]
+Deployed at [https://sleepy-hypatia-0dcc38.netlify.app/](https://sleepy-hypatia-0dcc38.netlify.app/)
