@@ -1,22 +1,23 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
+import { RiSunLine, RiMoonClearLine } from "react-icons/ri";
 
-const Toggle = ({ setTheme }) => {
+const Toggle = ({ isDark, setIsDark }) => {
   const handleToggle = (e) => {
     let isToggled = e.target.checked;
-    setTheme(isToggled ? "dark" : "light");
+    setIsDark(isToggled ? true : false);
   };
 
   return (
     <Wrapper>
-      <span role="img" aria-label="sun">
-        ☀️
-      </span>
-      <Checkbox type="checkbox" onClick={(e) => handleToggle(e)} />
+      <RiSunLine />
+      <Checkbox
+        checked={isDark}
+        type="checkbox"
+        onChange={(e) => handleToggle(e)}
+      />
       <Switch />
-      <span role="img" aria-label="moon">
-        🌙
-      </span>
+      <RiMoonClearLine />
     </Wrapper>
   );
 };

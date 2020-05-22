@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components/macro";
 import { RiStackLine, RiUser5Line, RiLock2Line } from "react-icons/ri";
 
 const Collection = ({ imgUrl, alt, title, count }) => {
@@ -30,23 +30,24 @@ const Collection = ({ imgUrl, alt, title, count }) => {
 
 export default Collection;
 
-const Wrapper = styled.article`
-  width: 250px;
-  margin: 7vh 4vw 0 0;
-  background: ${(props) => props.theme.body};
-  border: 3px solid ${(props) => props.theme.border};
-  box-shadow: 7px 7px 0px ${(props) => props.theme.border};
+const Wrapper = styled.article(
+  ({ theme }) => css`
+    width: 250px;
+    margin: 5vh 4vw 0 0;
+    background: ${theme.body};
+    border: 3px solid ${theme.border};
+    box-shadow: 7px 7px 0px ${theme.border};
 
-  img {
-    height: 200px;
-    width: 100%;
-    object-fit: cover;
-  }
-`;
+    img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+  `
+);
 
 const Text = styled.div`
   padding: 0 3% 5% 5%;
-  color: ${(props) => props.theme.text};
 `;
 
 const Title = styled.p`
